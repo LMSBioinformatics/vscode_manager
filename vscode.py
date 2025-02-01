@@ -31,13 +31,12 @@ commands = {}
 parser = argparse.ArgumentParser(
     prog='vscode',
     description=r'''
-|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
                     _  _  ____     ___  __  ____  ____
                    / )( \/ ___)   / __)/  \(    \(  __)
                    \ \/ /\___ \  ( (__(  O )) D ( ) _)
                     \__/ (____/   \___)\__/(____/(____)
 
-                    launch and manage VS Code HPC jobs
+                  launch and manage code-server HPC jobs
 ''',
     formatter_class=RawDescriptionRichHelpFormatter,
     exit_on_error=False,
@@ -76,7 +75,7 @@ commands['start'].add_argument(
     '-@', '--cpu', default=1, type=int,
     help='requested number of CPUs (default %(default)s)')
 commands['start'].add_argument(
-    '-m', '--mem', default=8, type=int,
+    '-m', '--mem', default=16, type=int,
     help='requested amount of RAM (GB, default %(default)s)')
 commands['start'].add_argument(
     '-w', '--wallclock', dest='time', default=16, type=int,
@@ -139,7 +138,7 @@ def main():
     # catch command names by themselves
     if len(sys.argv) == 2 and \
             (sys.argv[1] in commands and
-            sys.argv[1] not in ('list', 'ls', 'show')):
+            sys.argv[1] not in ('list', 'ls', 'show', 'start', 'create', 'new')):
         commands[sys.argv[1]].print_help()
         sys.exit(0)
 

@@ -55,7 +55,8 @@ code-server \
     --auth none \
     --disable-telemetry \
     --disable-workspace-trust \
-    --disable-update-check &
+    --disable-update-check \
+> /dev/null &
 
 VSCODE_PID=$!
 wait ${VSCODE_PID}

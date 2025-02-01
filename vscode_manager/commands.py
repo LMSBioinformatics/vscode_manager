@@ -72,7 +72,7 @@ def vscode_start(args: Namespace) -> None:
             # wait until we can connect to the session
             while not session.is_alive:
                 sleep(2)
-        logger.info(f'\VS Code is running on {session.node}')
+        logger.info(f'VS Code is running on {session.node}')
         # print so that those using -q see the output
         print(f'URL:   {session.url}')
 

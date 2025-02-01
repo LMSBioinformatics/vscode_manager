@@ -19,7 +19,7 @@ from rich import print
 from rich_argparse import RawDescriptionRichHelpFormatter
 
 from vscode_manager import \
-    __prog__, __version__, __status__, SESSION_STORE, R_VERSIONS
+    __prog__, __version__, __status__, SESSION_STORE
 from vscode_manager.commands import vscode_start, vscode_stop, vscode_list
 
 
@@ -70,9 +70,6 @@ commands['start'] = subparsers.add_parser(
 commands['create'] = commands['new'] = commands['start']
 # arguments
 commands['start'].add_argument(
-    'r_version', choices=R_VERSIONS,
-    help='version of Python to launch as the default VS Code kernel')
-commands['start'].add_argument(
     '-n', '--name', default='vscode_server', type=str,
     help='job name for the scheduler (default "%(default)s")')
 commands['start'].add_argument(
@@ -91,10 +88,6 @@ commands['start'].add_argument(  # hidden
     '-p', '--partition', default='int', type=str,
     choices=('int', 'cpu', 'hmem', 'gpu'),
     help=argparse.SUPPRESS)
-commands['start'].add_argument(
-    '-b', '--bind', type=str, default='',
-    help='additional bind path/s using the singularity format \
-    specification (src[:dest[:opts]])')
 commands['start'].add_argument(  # hidden
     '-l', '--log', action='store_true',
     help=argparse.SUPPRESS)

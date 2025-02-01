@@ -8,7 +8,7 @@ from rich.console import Console
 from rich.table import Table
 import sh
 
-from vscode_manager import SINGULARITY_IMAGE, SESSION_STORE
+from vscode_manager import SESSION_STORE
 from vscode_manager.helpers import \
     get_logger, get_vscode_jobs, cancel_job, Request, Session, SignalHandler
 
